@@ -1,0 +1,109 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Users</h2>
+
+<table>
+    <thead>
+  <tr>
+    <th></th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of users;let i = index;">
+    <td>{{user.id}}</td>
+    <td>{{user.first_name}}</td>
+    <td>{{user.last_name}}</td>
+    <td>{{user.email}}</td>
+  </tr>
+  </tbody>
+  
+</table>
+
+</body>
+</html> -->
+<html>
+<head>
+  <style type="text/css">
+  /* mat-table {
+    width: 80%;
+    text-align: center !important;
+
+  } */
+
+  th.mat-sort-header-sorted {
+    color:black;
+  }
+
+  </style>
+</head>
+<body>
+    <!-- <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="searchUser($event)" placeholder="Search">
+    </mat-form-field> -->
+    
+  <mat-table [dataSource]="users" matSort (matSortChange)="sortUsers($event)" class="mat-elevation-z8">
+  <mat-header-row *matHeaderRowDef="userTableColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: userTableColumns"></mat-row>
+  <ng-container matColumnDef="image">
+    <mat-header-cell *matHeaderCellDef>Avatar</mat-header-cell>
+    <mat-cell *matCellDef="let user"><img src="{{user.avatar}}" width="80px"></mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="first_name">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>First Name</mat-header-cell>
+    <mat-cell *matCellDef="let user">{{user.first_name}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="last_name">
+    <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
+    <mat-cell *matCellDef="let user">{{user.last_name}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="email">
+    <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+    <mat-cell *matCellDef="let user">{{user.email}}</mat-cell>
+  </ng-container> 
+  
+</mat-table>
+<!-- <table matSort (matSortChange)="sortUsers($event)">
+  <tr>
+    <th mat-sort-header="avatar">Avatar</th>
+    <th mat-sort-header="first_name">First Name</th>
+    <th mat-sort-header="last_name">Last Name</th>
+    <th mat-sort-header="email">Email</th>
+    
+  </tr>
+
+  <tr *ngFor="let user of dataList">
+    <td>{{user.name}}</td>
+    <td>{{user.calories}}</td>
+    <td>{{user.fat}}</td>
+    <td>{{user.carbs}}</td>
+    <td>{{user.protein}}</td>
+  </tr>
+</table> -->
+
+</body>
+</html>
