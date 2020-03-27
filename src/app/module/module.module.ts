@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 
 import { ModuleRoutingModule } from './module-routing.module';
 import {UserModule} from './user/user.module';
+import { ExpertiseComponent } from './expertise/expertise.component';
+import { ChildexpertiseComponent } from './expertise/childexpertise/childexpertise.component';
 
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [ExpertiseComponent, ChildexpertiseComponent],
   imports: [
     CommonModule,
     ModuleRoutingModule,

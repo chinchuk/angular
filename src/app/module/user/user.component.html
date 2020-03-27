@@ -65,7 +65,7 @@ tr:nth-child(even) {
       <mat-label>Filter</mat-label>
       <input matInput (keyup)="searchUser($event)" placeholder="Search">
     </mat-form-field> -->
-    
+    <h2>User List</h2>
   <mat-table [dataSource]="users" matSort (matSortChange)="sortUsers($event)" class="mat-elevation-z8">
   <mat-header-row *matHeaderRowDef="userTableColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: userTableColumns"></mat-row>

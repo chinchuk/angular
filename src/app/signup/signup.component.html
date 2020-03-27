@@ -1,3 +1,4 @@
+<h2>Registration Form</h2>
 <div class="container">
     <form [formGroup]="signupForm" (ngSubmit)="submitSignupForm()">
 
@@ -13,10 +14,35 @@
             <label for="address">Address</label>
             <input formControlName="address" id="address" type="text" class="form-control">            
         </div>
-        <div class="form-group">
-            <label for="phone">Address</label>
+
+        <!-- <div class="form-group">
+            <label for="phone">Phone</label>
             <input formControlName="phone" id="phone" type="text" class="form-control">            
+        </div> -->
+        <div formArrayName="phone">
+            <div class="form-group">
+                
+                <button class="btn btn-primary" type="button" (click)="addPhone()">Add Phone</button>
+            </div>
+            <div class="form-group" *ngFor="let p of phone.controls;let i = index;">
+                <label>Phone {{i+1}}</label>
+                <input class="form-control" type="text" [formControlName]="i">
+            </div>
+
         </div>
+        <!-- <div formArrayName="phone" class="col-md-6">
+            <br>
+            <h4><b> Enter Mobile Number:</b>
+            </h4>
+            <button (click)="addPhone()" class="btn btn-warning">
+                Add new mobile
+            </button>
+    <br><hr>
+            <div *ngFor="let p of phone.controls;let i = index;">
+                <label for=""> Mobile {{i+1}}</label>
+                <input class="form-control" type="text" [formControlName]="i">
+            </div>
+        </div> -->
         <div class="form-group">
             <button  class="btn btn-success" type="submit" [disabled]="!signupForm.valid">Submit</button>
         </div>
