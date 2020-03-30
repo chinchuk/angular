@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <h2>Registration Details</h2>
+
+  <div class="row">
+      <div class="col-sm-4">Name:</div>
+      <div class="col-sm-8">{{user.name}}</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">Email:</div>
+    <div class="col-sm-8">{{user.email}}</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">Address</div>
+    <div class="col-sm-8">{{user.address}}</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">Phone:</div>
+    <div class="col-sm-8">
+      <span class="label label-default mr-4" *ngFor="let ph of user.phone">{{ph}}</span>
+    </div>
+  </div>
+</div>

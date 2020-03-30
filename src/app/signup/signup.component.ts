@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl, FormArray } from '@angular/forms';
-
+import { SignupService} from '@app/signup/signup.service';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -10,7 +11,7 @@ import { FormBuilder, FormGroup, Validators, FormControl, FormArray } from '@ang
 export class SignupComponent implements OnInit {
 
   signupForm: FormGroup;
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private signupService: SignupService, private router: Router) {
     this.initSignupForm();
   }
 
@@ -36,7 +37,12 @@ export class SignupComponent implements OnInit {
   }
 
   submitSignupForm(){
-    console.log(this.signupForm.value);
+    //console.log(this.signupForm.value);
+    // const userDetail  = {
+    //   'name' : this.signupForm.value.name
+    // };
+    this.signupService.setUser(this.signupForm);
+    this.router.navigate(['/signupdetails']);
   }
 
 }

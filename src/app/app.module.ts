@@ -10,6 +10,7 @@ import { ApiInterceptor } from './core/interceptor/api.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignupComponent } from './signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SignupdetailsComponent } from './signupdetails/signupdetails.component';
 
 
 
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     LandingComponent,
-    SignupComponent
+    SignupComponent,
+    SignupdetailsComponent
   ],
   imports: [
     BrowserModule,
